@@ -6,6 +6,10 @@ import { UsuarioService } from '../../shared/service/usuario.service';
 import { ItemTarefaService } from '../../shared/service/itemTarefa.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Usuario } from '../../shared/model/usuario';
+import { TarefaTemplateDTO } from '../../shared/model/DTO/TarefaTemplateDTO';
+
+
 
 @Component({
   selector: 'app-tarefa-listagem',
@@ -16,11 +20,17 @@ import Swal from 'sweetalert2';
 })
 export class TarefaListagemComponent implements OnInit{
 
+  public usuario: Usuario = new Usuario();
   public tarefas: Tarefa[] = new Array();
   public idTarefa: number;
   public seletor: TarefaSeletor = new TarefaSeletor();
   public totalPaginas: Number = 0;
   public readonly TAMANHO_PAGINA: number = 0;
+  public showForm: boolean = false;
+  public isTemplate: boolean = false;
+
+
+  
 
   constructor(
     private tarefaService: TarefaService,
@@ -89,5 +99,5 @@ export class TarefaListagemComponent implements OnInit{
       }
     });
   }
-
 }
+

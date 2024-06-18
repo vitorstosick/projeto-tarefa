@@ -5,10 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { TarefaRoutingModule } from './tarefa-routing.module';
 import { TarefaDetalheComponent } from './tarefa-detalhe/tarefa-detalhe.component';
 
+
 @NgModule({
   declarations: [
     TarefaListagemComponent,
-    TarefaDetalheComponent
+    TarefaDetalheComponent,
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,6 @@
 export class TarefaTemplateDTO {
 
     idTarefaTemplate: number;
-    nomeNovaTarefa: number;
+    nomeNovaTarefa: string;
 
 }

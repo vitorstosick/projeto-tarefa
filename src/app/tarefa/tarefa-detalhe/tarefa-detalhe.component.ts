@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TarefaService } from '../../shared/service/tarefa.service';
 import { UsuarioService } from '../../shared/service/usuario.service';
 import Swal from 'sweetalert2';
+import { Usuario } from '../../shared/model/usuario';
 
 @Component({
   selector: 'app-tarefa-listagem',
@@ -18,6 +19,7 @@ export class TarefaDetalheComponent implements OnInit {
   public itens: ItemTarefa[] = new Array();
   public tarefa: Tarefa = new Tarefa();
   public idTarefa: number;
+  public usuarios: Array<Usuario> = new Array();
 
   constructor(
     private tarefaService: TarefaService,
@@ -33,6 +35,8 @@ export class TarefaDetalheComponent implements OnInit {
         this.buscarTarefa();
       }
     });
+
+    this.consultarTodosUsuarios()
   }
 
   public salvar(): void {
@@ -84,5 +88,17 @@ export class TarefaDetalheComponent implements OnInit {
 
   public voltar() {
     this.router.navigate(['/']);
+  }
+
+  private consultarTodosUsuarios() {
+    this.usuarioService.consultarTodos().subscribe(
+
+    (resposta) => {
+      this.usuarios = resposta;
+    },
+    (erro) => {
+      Swal.fire('Erro ao consultar todos usuários', '', 'error');
+    } 
+  )
   }
 }

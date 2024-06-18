@@ -1,1 +1,44 @@
-<p>tarefa-detalhe works!</p>
+<div class="container">
+    <pre>{{tarefa | json}}</pre>
+    <br>
+    <div class="card">
+        <div class="card-header ">
+            <h5>Adicionar tarefa</h5>
+        </div>
+        <div class="card-body">
+            <form class="form">
+                <div class="row" >
+                    <div class="col-md-5">
+                        <label for="nome">Nome da tarefa:</label>
+                        <input type="text" id="nome" class="form-control custom-border" name="nomeTarefa" [(ngModel)]="tarefa.nomeTarefa"/>
+                    </div>
+                    <div class="col-md-5 ">
+                        <label for="nome">Tipo da tarefa:</label>
+                        <input type="text" id="nome" class="form-control" name="tipoTarefa" [(ngModel)]="tarefa.tipoTarefa"> 
+                    </div>
+                    <div class="col-md-5 ">
+                        <label for="nome">Usuarios</label>
+                         <select class="form-control custom-border" name="nomeUsuario"  [(ngModel)]="tarefa.usuario">
+                        @for (usuario of usuarios; track usuario.idUsuario) {
+                        <option [ngValue]="usuario">{{ usuario.nome }}</option>
+                        }
+                         </select> 
+                    </div>
+                    <!--  -->
+                    <div class="row">
+                        <div class="col-md-16 form-group">
+                            <label for="btnPesquisar" class="form-label">&nbsp;</label>  
+                            <button type="button" class="btn btn-outline-secondary"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                name="btnPesquisar" 
+                                (click)="salvar()"
+                                >
+                                Salvar
+                            </button>
+                            <label for="btnLimpar" class="form-label">&nbsp;</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

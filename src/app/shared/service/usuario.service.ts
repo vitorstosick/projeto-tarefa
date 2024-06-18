@@ -29,7 +29,9 @@ export class UsuarioService {
     return this.httpClient.get<Usuario>(this.API + '/' + id);
   }
 
-
+  public consultarTodos(): Observable<Array<Usuario>> {
+    return this.httpClient.get<Array<Usuario>>(this.API + '/listar');
+  }
 
 
 }

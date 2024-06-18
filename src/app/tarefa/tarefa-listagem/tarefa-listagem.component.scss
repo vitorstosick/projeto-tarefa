@@ -1,23 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 button {
-    
+
     display: inline-block; /* Ou use block para comportamento de bloco */
-    padding: 10px 20px; /* Padding interno */
+    padding: 5px 5px; /* Padding interno */
     font-size: 16px; /* Tamanho da fonte */
     border: none; /* Remover borda padrão */
-    background-color: #3a73b1; /* Cor de fundo */
-    color: white; /* Cor do texto */
+    background-color: #2d5e92; /* Cor de fundo */
+    color: rgb(255, 255, 255); /* Cor do texto */
     cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
-    border-radius: 5px; /* Borda arredondada */
-    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
-    min-width: 200px; /* Defina uma largura mínima */
+    border-radius: 10px; /* Borda arredondada */
+    transition: background-color 0.2s; /* Transição suave para a cor de fundo */
+    min-width:  50px; /* Defina uma largura mínima */
     text-align: center; /* Centralizar o texto dentro do botão */
-    white-space: nowrap; /* Impedir quebra de linha */
+    font-family: "Montserrat", sans-serif; 
+    
 }
 
 form{
     background-color: #acc4df;
+    border-radius: 10px;
+    min-height: 150px;
+
 }
 
 .card{
@@ -27,7 +31,10 @@ form{
 h5 {
     text-align: center;
     padding: 5px;
-    font-family: "Montserrat", sans-serif;
-    
-    
+    font-family: "Montserrat", sans-serif; 
 }
+
+.row {
+    padding: 10px;
+}
+
