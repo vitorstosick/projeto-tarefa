@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { TarefaListagemComponent } from './tarefa-listagem/tarefa-listagem.component';
 import { FormsModule } from '@angular/forms';
 import { TarefaRoutingModule } from './tarefa-routing.module';
-
-
+import { TarefaDetalheComponent } from './tarefa-detalhe/tarefa-detalhe.component';
 
 @NgModule({
   declarations: [
-    TarefaListagemComponent
+    TarefaListagemComponent,
+    TarefaDetalheComponent
   ],
   imports: [
     CommonModule,
@@ -16,4 +16,5 @@ import { TarefaRoutingModule } from './tarefa-routing.module';
     TarefaRoutingModule
   ]
 })
+
 export class TarefaModule { }
