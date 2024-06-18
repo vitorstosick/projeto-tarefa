@@ -42,8 +42,5 @@ export class TarefaService {
   public criarTarefaAPartirDeTemplate(dto: TarefaTemplateDTO):Observable<Tarefa> {
     return this.httpClient.post<Tarefa>(this.API + '/inserir-template', dto);
   }
-
   
-
-
 }

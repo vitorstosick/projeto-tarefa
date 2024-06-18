@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card custom-border">
       <div class="card-header">
-        <h5>Filtros</h5>
+        <h5>Lista de tarefas</h5>
       </div>
       <div class="card-body">
         <form>
@@ -13,24 +13,27 @@
             </div>
             <div class="col-md-4">
               <label for="nome">Tipo tarefa:</label>
-              <!--<input type="text" id="nome" class="form-control" name="nomePais" > -->
+              <input type="text" id="tipoTarefa" class="form-control" name="tipoTarefa"
+              [(ngModel)]="seletor.tipoTarefa" />
+              <!--<label for="nome">Tipo tarefa:</label>-->
+              <!--<input type="text" id="nome" class="form-control" name="tipoTarefa" > -->
               <!--<select class="form-control custom-border" name="tipoTarefa">
-                @for (pais of paises; track pais.idPais) {
-                <option ngValue="{{ pais.nomePais }}">
-                  {{ pais.nomePais }} ({{ pais.sigla }})</option>
+                @for (tipo of tipos; track tipo.idTipo) {
+                <option ngValue="{{ tipo.nomeTipo }}">{{ tipo.nomeTipo }}</option>
                 }
               </select>-->
             </div>
+            <div class="col-md-4">
+            </div>
             <!--  -->
             <div class="col-md-4">
-              <label for="nome">Realizada:</label>
-              <input type="text" id="nome" class="form-control" name="nomePesquisador" [(ngModel)]="seletor.realizado" >
-              <!-- <select class="form-control custom-border" name="realizado" >
-                @for (pessoa of pesquisadores; track pessoa.id) {
-                <option value="{{ pessoa.nome }}">{{ pessoa.nome }}</option>
-                }
-              </select> -->
-            </div>
+              <label>Realizada:</label><br>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="realizadaSim" name="realizadaSim"
+                      [(ngModel)]="seletor.realizado" [value]="true">
+                  <label class="form-check-label" for="realizadaSim">Sim</label>
+              </div>
+          </div>
             <div class="row">
               <div class="col-md-16 form-group">
                 <label for="btnPesquisar" class="form-label">&nbsp;</label>
@@ -58,21 +61,25 @@
           <tr>
             <th class="text-center">Nome da tarefa:</th>
             <th class="text-center">Tipo da tarefa</th>
+            <th class="text-center">Realizada</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let tarefa of tarefas">
-            <td class="text-center" >{{ tarefa.nomeTarefa }}</td>
+            <td class="text-center">{{ tarefa.nomeTarefa }}</td>
             <td class="text-center">{{ tarefa.tipoTarefa }}</td>
-            <!-- <td> {{ vacina.mediaVacina }} </td> -->
-            <td>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-                <button class="btn btn-outline-success">Editar</button>
-                <button class="btn btn-outline-danger" >Excluir</button>
-              </div>
+            <td class="text-center">
+                <span *ngIf="tarefa.realizado; else naoRealizado">Sim</span>
+                <ng-template #naoRealizado>Não</ng-template>
             </td>
-          </tr>
+            <td>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-success" (click)="atualizar(tarefa.idTarefa)">Editar</button>
+                    <button class="btn btn-outline-danger" (click)="excluir(tarefa)">Excluir</button>
+                </div>
+            </td>
+        </tr>
         </tbody>
       </table>
     </div>

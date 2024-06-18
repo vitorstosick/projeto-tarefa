@@ -29,9 +29,6 @@ export class TarefaListagemComponent implements OnInit{
   public showForm: boolean = false;
   public isTemplate: boolean = false;
 
-
-  
-
   constructor(
     private tarefaService: TarefaService,
     private usuarioService: UsuarioService,
