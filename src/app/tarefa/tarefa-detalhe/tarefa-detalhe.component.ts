@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ItemTarefa } from '../../shared/model/itemTarefa';
 import { Tarefa } from '../../shared/model/tarefa';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -6,6 +6,7 @@ import { TarefaService } from '../../shared/service/tarefa.service';
 import { UsuarioService } from '../../shared/service/usuario.service';
 import Swal from 'sweetalert2';
 import { Usuario } from '../../shared/model/usuario';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-tarefa-listagem',
@@ -20,6 +21,11 @@ export class TarefaDetalheComponent implements OnInit {
   public tarefa: Tarefa = new Tarefa();
   public idTarefa: number;
   public usuarios: Array<Usuario> = new Array();
+
+
+  @ViewChild('ngForm')
+  public ngForm: NgForm;
+
 
   constructor(
     private tarefaService: TarefaService,
@@ -100,5 +106,17 @@ export class TarefaDetalheComponent implements OnInit {
       Swal.fire('Erro ao consultar todos usuários', '', 'error');
     } 
   )
+  }
+
+  validarNome(){
+    let estiloInput = 'form-control';
+
+    if(this.ngForm && this.ngForm.invalid){
+      if(this.tarefa.nomeTarefa != null && this.tarefa.nomeTarefa.length < 3){
+        estiloInput = 'form-control is-invalid';
+      }
+    }
+
+    return estiloInput;
   }
 }

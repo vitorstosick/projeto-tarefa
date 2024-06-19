@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { TarefaSeletor } from '../model/seletor/tarefaSeletor';
 import { TarefaTemplateDTO } from '../model/DTO/TarefaTemplateDTO';
+import { ItemTarefa } from '../model/itemTarefa';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,10 @@ export class TarefaService {
 
   public criarTarefaAPartirDeTemplate(dto: TarefaTemplateDTO):Observable<Tarefa> {
     return this.httpClient.post<Tarefa>(this.API + '/inserir-template', dto);
+  }
+
+  public consultarItensDaTarefa(idTarefa: number): Observable<Array<ItemTarefa>> {
+    return this.httpClient.get<Array<ItemTarefa>>(this.API + '/listar-itens/' + idTarefa);
   }
   
 }

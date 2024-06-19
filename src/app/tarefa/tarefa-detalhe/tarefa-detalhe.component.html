@@ -6,20 +6,21 @@
             <h5>{{ idTarefa ? 'Editar' : 'Nova'}} tarefa</h5>
         </div>
         <div class="card-body">
-            <form class="form">
+            <form #ngForm="ngForm">
                 <div class="row" >
                     <div class="col-md-5">
                         <label for="nome">Nome da tarefa:</label>
-                        <input type="text" id="nome" class="form-control custom-border" name="nomeTarefa" [(ngModel)]="tarefa.nomeTarefa"/>
+                        <input  [ngClass]="validarNome()" type="text" id="nome" class="form-control custom-border"
+                        minlength="5" name="nomeTarefa" [(ngModel)]="tarefa.nomeTarefa" required/>
                     </div>
                     <div class="col-md-5 ">
                         <label for="nome">Tipo da tarefa:</label>
-                        <input type="text" id="nome" class="form-control" name="tipoTarefa" [(ngModel)]="tarefa.tipoTarefa"> 
+                        <input type="text" id="nome" class="form-control" name="tipoTarefa" [(ngModel)]="tarefa.tipoTarefa" required> 
                     </div>
                     <!-- Campo de seleção de usuário, mostrado apenas em Nova tarefa -->
                     <div class="col-md-5" *ngIf="!idTarefa">
                         <label for="nome">Usuário:</label>
-                        <select class="form-control custom-border" name="nomeUsuario" [(ngModel)]="tarefa.usuario">
+                        <select class="form-control custom-border" name="nomeUsuario" [(ngModel)]="tarefa.usuario" required>
                             <option *ngFor="let usuario of usuarios" [ngValue]="usuario">{{ usuario.nome }}</option>
                         </select>
                     </div>
@@ -32,10 +33,6 @@
                             <label>
                                 <input type="checkbox" name="statusConcluido" [(ngModel)]="tarefa.realizado">
                                 Concluído
-                            </label><br>
-                            <label>
-                                <input type="checkbox" name="statusUrgente" [(ngModel)]="tarefa.isTemplate">
-                                Template
                             </label>
                         </div>
                     </div>

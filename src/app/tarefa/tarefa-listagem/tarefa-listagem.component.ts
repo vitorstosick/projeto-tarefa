@@ -37,7 +37,7 @@ export class TarefaListagemComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.consultarTodasTarefas();
+    
   }
 
   private consultarTodasTarefas() {
@@ -97,4 +97,3 @@ export class TarefaListagemComponent implements OnInit{
     });
   }
 }
-
