@@ -5,10 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { ItemDetalheComponent } from './item-detalhe/item-detalhe.component';
 import { ItemRoutingModule } from './item-routing.module';
 
-
-
-
-
 @NgModule({
   declarations: [
     ItemDetalheComponent

@@ -75,7 +75,13 @@
           </td>
           <td>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button class="btn btn-outline-success" (click)="toggleExpanded(tarefa)">Detalhes</button>
+              <button class="btn btn-outline-success" (click)="atualizar(tarefa.idTarefa)">Editar</button>
+              <button class="btn btn-outline-danger" (click)="excluir(tarefa)">Excluir</button>
+            </div>
+          </td>
+          <td>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-outline-success" (click)="toggleExpanded(tarefa)">Itens</button>
             </div>
             <!-- Linha expansível para itens da tarefa -->
             <tr *ngIf="tarefa.expanded">

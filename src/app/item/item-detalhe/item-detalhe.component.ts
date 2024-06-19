@@ -18,7 +18,7 @@ export class ItemDetalheComponent implements OnInit{
   public idItem: number;
   public item: ItemTarefa = new ItemTarefa();
   public tarefas: Array<Tarefa> = new Array();
- 
+
 
 
   constructor(
@@ -75,7 +75,7 @@ export class ItemDetalheComponent implements OnInit{
   }
 
   public voltar() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/tarefa/']);
   }
 
   public inserir(): void {

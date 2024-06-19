@@ -93,7 +93,7 @@ export class TarefaDetalheComponent implements OnInit {
   }
 
   public voltar() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/tarefa/']);
   }
 
   private consultarTodosUsuarios() {
@@ -104,7 +104,7 @@ export class TarefaDetalheComponent implements OnInit {
     },
     (erro) => {
       Swal.fire('Erro ao consultar todos usuários', '', 'error');
-    } 
+    }
   )
   }
 
