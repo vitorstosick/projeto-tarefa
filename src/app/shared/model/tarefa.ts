@@ -9,6 +9,7 @@ export class Tarefa {
   tipoTarefa: string;
   itensTarefa: ItemTarefa[] = [];
   realizado: boolean;
-  isTemplate: boolean = false; // 
+  isTemplate: boolean = false; 
+  expanded: boolean;
   
 }

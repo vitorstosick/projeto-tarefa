@@ -37,7 +37,7 @@ export class TarefaListagemComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    
+
   }
 
   private consultarTodasTarefas() {
@@ -95,5 +95,9 @@ export class TarefaListagemComponent implements OnInit{
         );
       }
     });
+  }
+
+  toggleExpanded(tarefa: Tarefa): void {
+    tarefa.expanded = !tarefa.expanded;
   }
 }

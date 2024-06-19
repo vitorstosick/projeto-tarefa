@@ -70,16 +70,28 @@
           <td class="text-center">{{ tarefa.nomeTarefa }}</td>
           <td class="text-center">{{ tarefa.tipoTarefa }}</td>
           <td class="text-center">
-              <span *ngIf="tarefa.realizado; else naoRealizado">Sim</span>
-              <ng-template #naoRealizado>Não</ng-template>
+            <span *ngIf="tarefa.realizado; else naoRealizado">Sim</span>
+            <ng-template #naoRealizado>Não</ng-template>
           </td>
           <td>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <button class="btn btn-outline-success" (click)="atualizar(tarefa.idTarefa)">Editar</button>
-                  <button class="btn btn-outline-danger" (click)="excluir(tarefa)">Excluir</button>
-              </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-outline-success" (click)="toggleExpanded(tarefa)">Detalhes</button>
+            </div>
+            <!-- Linha expansível para itens da tarefa -->
+            <tr *ngIf="tarefa.expanded">
+              <td colspan="4">
+                <div>
+                  <p><strong>Itens da tarefa:</strong></p>
+                  <ul>
+                    <li *ngFor="let item of tarefa.itensTarefa">
+                      {{ item.descricao }} - {{ item.realizado ? 'Realizado' : 'Não Realizado' }}
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
           </td>
-      </tr>
+        </tr>
       </tbody>
     </table>
   </div>
