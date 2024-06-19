@@ -89,8 +89,13 @@
                 <div>
                   <p><strong>Itens da tarefa:</strong></p>
                   <ul>
-                    <li *ngFor="let item of tarefa.itensTarefa">
-                      {{ item.descricao }} - {{ item.realizado ? 'Realizado' : 'Não Realizado' }}
+                    <li *ngFor="let item of tarefa.itensTarefa" class="mb-2">
+                      {{ item.descricao }} - {{ item.realizado ? 'Realizado' : 'Não Realizado' }} <button id="#delete-item" type="button" class="btn btn-outline-danger ms-2" (click)="excluirItem(item)">
+                        Excluir
+                    </button>
+                    <button type="button" class="btn btn-outline-danger ms-2" (click)="alterarItem(item)">
+                      Editar
+                    </button>
                     </li>
                   </ul>
                 </div>

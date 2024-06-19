@@ -19,8 +19,6 @@ export class ItemDetalheComponent implements OnInit{
   public item: ItemTarefa = new ItemTarefa();
   public tarefas: Array<Tarefa> = new Array();
 
-
-
   constructor(
     private router: Router, // COMPONENTE PARA FAZER ROTEAMENTO ENTRA AS TELAS
     private route: ActivatedRoute, //PEGAR OS PARAMETROS DA URL
@@ -32,20 +30,20 @@ export class ItemDetalheComponent implements OnInit{
     this.route.params.subscribe((params) => {
       this.idItem = params['id'];
       if (this.idItem) {
-        this.buscarTarefa();
+        this.buscarItem();
       }
     });
 
-    this.consultarTodasTarefas();
+    this.consultarTodosItens();
   }
 
-  public buscarTarefa(): void {
+  public buscarItem(): void {
     this.itemService.consultarPorId(this.idItem).subscribe(
-      (vacina) => {
-        this.item = vacina;
+      (item) => {
+        this.item = item;
       },
       (erro) => {
-        Swal.fire('Erro ao buscar uma tarefa!', erro, 'error');
+        Swal.fire('Erro ao buscar um item!', erro, 'error');
       }
     );
   }
@@ -62,7 +60,7 @@ export class ItemDetalheComponent implements OnInit{
   public alterar(): void {
     this.itemService.alterar(this.item).subscribe(
       (resposta) => {
-        Swal.fire('Item atualizada com sucesso!', '', 'success');
+        Swal.fire('Item atualizado com sucesso!', '', 'success');
         this.voltar();
       },
       (erro) => {
@@ -82,7 +80,7 @@ export class ItemDetalheComponent implements OnInit{
     this.itemService.inserir(this.item).subscribe(
       (resposta) => {
         this.item = resposta;
-        Swal.fire('Item salva com sucesso!', '', 'success');
+        Swal.fire('Item salvo com sucesso!', '', 'success');
         this.voltar();
       },
       (erro) => {
@@ -91,7 +89,7 @@ export class ItemDetalheComponent implements OnInit{
     );
   }
 
-  private consultarTodasTarefas() {
+  private consultarTodosItens() {
     this.tarefaService.consultarTodos().subscribe(
       (resultado) => {
         this.tarefas = resultado;

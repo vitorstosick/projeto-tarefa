@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Usuario } from '../../shared/model/usuario';
 import { TarefaTemplateDTO } from '../../shared/model/DTO/TarefaTemplateDTO';
+import { ItemTarefa } from '../../shared/model/itemTarefa';
 
 
 
@@ -28,6 +29,7 @@ export class TarefaListagemComponent implements OnInit{
   public readonly TAMANHO_PAGINA: number = 0;
   public showForm: boolean = false;
   public isTemplate: boolean = false;
+  itemTarefa: ItemTarefa;
 
   constructor(
     private tarefaService: TarefaService,
@@ -97,7 +99,43 @@ export class TarefaListagemComponent implements OnInit{
     });
   }
 
+  public voltar() {
+    this.router.navigate(['/tarefa/']);
+  }
+
   toggleExpanded(tarefa: Tarefa): void {
     tarefa.expanded = !tarefa.expanded;
   }
+
+  public excluirItem(itemSelecionado: ItemTarefa) {
+    Swal.fire({
+      title: 'Deseja excluir este Item?',
+      text: 'Essa ação não poderá ser desfeita',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sim!',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.value) {
+        this.itemTarefaService.excluir(itemSelecionado.idItem).subscribe(
+          (resultado) => {
+            this.pesquisar();
+            Swal.fire('Sucesso!', 'Item excluída com sucesso! ', 'success');
+          },
+          (erro) => {
+            Swal.fire(
+              'Erro!',
+              'Erro ao excluir tarefa: ' + erro.error.mensagem,
+              'error'
+            );
+          }
+        );
+      }
+    });
+  }
+
+  public alterarItem(item: ItemTarefa) {
+    this.router.navigate(['/item/detalhe/', item]);
+  }
+
 }

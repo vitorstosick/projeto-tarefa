@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ItemTarefa } from '../model/itemTarefa';
 import { Observable } from 'rxjs';
-import { InflateRaw } from 'zlib';
 
 @Injectable({
   providedIn: 'root'

@@ -18,6 +18,7 @@ import { NgForm } from '@angular/forms';
 export class TarefaDetalheComponent implements OnInit {
 
   public itens: ItemTarefa[] = new Array();
+  public itemTarefa: ItemTarefa = new ItemTarefa();
   public tarefa: Tarefa = new Tarefa();
   public idTarefa: number;
   public usuarios: Array<Usuario> = new Array();
