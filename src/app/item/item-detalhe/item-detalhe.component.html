@@ -1,9 +1,8 @@
 <div class="container">
-    <pre>{{item | json}}</pre>
     <br>
     <div class="card">
         <div class="card-header ">
-            <h5>{{ idItem ? 'Editar' : 'Nova'}} tarefa</h5>
+            <h5>{{ idItem ? 'Editar' : 'Novo'}} Item da tarefa</h5>
         </div>
         <div class="card-body">
             <form #ngForm="ngForm">
@@ -23,15 +22,22 @@
                     </div>
                     <div class="row">
                         <div class="col-md-16 form-group">
-                            <label for="btnPesquisar" class="form-label">&nbsp;</label>  
+                            <label for="btnPesquisar" class="form-label">&nbsp;</label>
                             <button type="button" class="btn btn-outline-secondary"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                name="btnPesquisar" 
+                                name="btnPesquisar"
                                 (click)="salvar()"
                                 >
                                 Salvar
                             </button>
-                            <label for="btnLimpar" class="form-label">&nbsp;</label>
+                            <label for="btnVoltar" class="form-label">&nbsp;</label>
+                            <button type="button" class="btn btn-outline-secondary"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                            name="btnVoltar"
+                            (click)="voltar()"
+                            >
+                            Voltar
+                        </button>
                         </div>
                     </div>
                 </div>

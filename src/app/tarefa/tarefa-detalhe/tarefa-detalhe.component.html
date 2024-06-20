@@ -1,5 +1,4 @@
 <div class="container">
-    <pre>{{tarefa | json}}</pre>
     <br>
     <div class="card">
         <div class="card-header ">
@@ -15,7 +14,7 @@
                     </div>
                     <div class="col-md-5 ">
                         <label for="nome">Tipo da tarefa:</label>
-                        <input type="text" id="nome" class="form-control" name="tipoTarefa" [(ngModel)]="tarefa.tipoTarefa" required> 
+                        <input type="text" id="nome" class="form-control" name="tipoTarefa" [(ngModel)]="tarefa.tipoTarefa" required>
                     </div>
                     <!-- Campo de seleção de usuário, mostrado apenas em Nova tarefa -->
                     <div class="col-md-5" *ngIf="!idTarefa">
@@ -40,10 +39,10 @@
                     <!--  -->
                     <div class="row">
                         <div class="col-md-16 form-group">
-                            <label for="btnPesquisar" class="form-label">&nbsp;</label>  
+                            <label for="btnPesquisar" class="form-label">&nbsp;</label>
                             <button type="button" class="btn btn-outline-secondary"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                name="btnPesquisar" 
+                                name="btnPesquisar"
                                 (click)="salvar()"
                                 >
                                 Salvar
@@ -51,7 +50,7 @@
                             <label for="btnVoltar" class="form-label">&nbsp;</label>
                             <button type="button" class="btn btn-outline-secondary"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                name="btnPesquisar" 
+                                name="btnPesquisar"
                                 (click)="voltar()"
                                 >
                                 Voltar

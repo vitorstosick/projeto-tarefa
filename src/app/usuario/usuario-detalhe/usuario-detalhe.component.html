@@ -1,5 +1,4 @@
 <div class="container">
-    <pre>{{usuario | json}}</pre>
     <br>
     <div class="card">
         <div class="card-header ">
@@ -15,30 +14,30 @@
                     </div>
                     <div class="col-md-5 ">
                         <label for="cpf">CPF:</label>
-                        <input type="text" id="cpf" class="form-control" name="cpf" [(ngModel)]="usuario.cpf" required> 
+                        <input type="text" id="cpf" class="form-control" name="cpf" [(ngModel)]="usuario.cpf" required>
                     </div>
                     <div class="col-md-5 ">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" class="form-control" name="email" [(ngModel)]="usuario.email" required> 
+                        <input type="email" id="email" class="form-control" name="email" [(ngModel)]="usuario.email" required>
                     </div>
                     <div class="col-md-5 ">
                         <label for="dataNascimento">Data de nascimento:</label>
-                        <input type="date" id="dataNascimento" class="form-control" name="dataNascimento" [(ngModel)]="usuario.dataNascimento" required> 
+                        <input type="date" id="dataNascimento" class="form-control" name="dataNascimento" [(ngModel)]="usuario.dataNascimento" required>
                     </div>
                     <div class="col-md-5 ">
                         <label for="login">Login:</label>
-                        <input type="text" id="login" class="form-control" name="login" [(ngModel)]="usuario.login" required> 
+                        <input type="text" id="login" class="form-control" name="login" [(ngModel)]="usuario.login" required>
                     </div>
                     <div class="col-md-5 ">
                         <label for="senha">Senha:</label>
-                        <input type="password" id="senha" class="form-control" name="senha" [(ngModel)]="usuario.senha" required> 
+                        <input type="password" id="senha" class="form-control" name="senha" [(ngModel)]="usuario.senha" required>
                     </div>
                     <div class="row">
                         <div class="col-md-16 form-group">
-                            <label for="btnPesquisar" class="form-label">&nbsp;</label>  
+                            <label for="btnPesquisar" class="form-label">&nbsp;</label>
                             <button type="button" class="btn btn-outline-secondary"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                name="btnPesquisar" 
+                                name="btnPesquisar"
                                 (click)="salvar()"
                                 >
                                 Salvar
@@ -46,7 +45,7 @@
                             <label for="btnVoltar" class="form-label">&nbsp;</label>
                             <button type="button" class="btn btn-outline-secondary"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                name="btnPesquisar" 
+                                name="btnPesquisar"
                                 (click)="voltar()"
                                 >
                                 Voltar
