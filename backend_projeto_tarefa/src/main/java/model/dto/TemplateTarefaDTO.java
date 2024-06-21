@@ -1,6 +1,4 @@
-package model.DTO;
-
-;
+package model.dto;
 
 public class TemplateTarefaDTO {
 

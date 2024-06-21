@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.entity.Tarefa;
-import seletor.TarefaSeletor;
+import model.seletor.TarefaSeletor;
 
 public class TarefaRepository implements BaseRepository<Tarefa> {
 

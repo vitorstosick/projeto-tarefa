@@ -1,7 +1,11 @@
 version: '3.8'
 
+networks:
+  network-tarefa:
+    name: tarefa
+    external: true
+
 services:
-# Serviço para o MySQL
   mysql:
     image: mysql:8.0
     container_name: mysql_database
@@ -18,10 +22,10 @@ services:
       - ./src/main/resources/scripts:/docker-entrypoint-initdb.d
     networks:
       - network-tarefa
-# Serviço backend Java
+
   java_app:
     build: 
-      context: ./projeto_tarefa_backend
+      context: ./backend_projeto_tarefa
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
@@ -29,7 +33,7 @@ services:
       - mysql
     networks:
       - network-tarefa
-# Serviço para o Frontend em Angular
+
   angular_app:
     build:
       context: ./projeto_tarefa_frontend
@@ -37,11 +41,6 @@ services:
     ports:
       - "4200:4200"
     depends_on:
-      java_app
+      - java_app
     networks:
-      -network-tarefa
-
-  networks:
-    network-tarefa
-
-
+      - network-tarefa

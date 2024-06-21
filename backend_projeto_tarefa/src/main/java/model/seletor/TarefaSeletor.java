@@ -1,4 +1,4 @@
-package seletor;
+package model.seletor;
 
 public class TarefaSeletor extends BaseSeletor {
 	

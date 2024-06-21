@@ -13,10 +13,9 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import model.DTO.TemplateTarefaDTO;
-import model.entity.ItemTarefa;
+import model.dto.TemplateTarefaDTO;
 import model.entity.Tarefa;
-import seletor.TarefaSeletor;
+import model.seletor.TarefaSeletor;
 import service.TarefaService;
 
 @Path("/tarefa")
