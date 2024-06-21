@@ -1,0 +1,110 @@
+<div class="container">
+  <br>
+  <div class="card custom-border">
+    <div class="card-header">
+      <h5>Lista de tarefas</h5>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="nome">Nome tarefa:</label>
+            <input type="text" id="nomeTarefa" class="form-control" name="nomeTarefa"
+            [(ngModel)]="seletor.nomeTarefa" />
+          </div>
+          <div class="col-md-4">
+            <label for="nome">Tipo tarefa:</label>
+            <input type="text" id="tipoTarefa" class="form-control" name="tipoTarefa"
+            [(ngModel)]="seletor.tipoTarefa" />
+            <!--<label for="nome">Tipo tarefa:</label>-->
+            <!--<input type="text" id="nome" class="form-control" name="tipoTarefa" > -->
+            <!--<select class="form-control custom-border" name="tipoTarefa">
+              @for (tipo of tipos; track tipo.idTipo) {
+              <option ngValue="{{ tipo.nomeTipo }}">{{ tipo.nomeTipo }}</option>
+              }
+            </select>-->
+          </div>
+          <div class="col-md-4">
+          </div>
+          <!--  -->
+          <div class="col-md-4">
+            <label>Realizada:</label><br>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="realizadaSim" name="realizadaSim"
+                    [(ngModel)]="seletor.realizado" [value]="true">
+                <label class="form-check-label" for="realizadaSim">Sim</label>
+            </div>
+        </div>
+          <div class="row">
+            <div class="col-md-16 form-group">
+              <label for="btnPesquisar" class="form-label">&nbsp;</label>
+              <button type="button" class="btn btn-outline-secondary"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                name="btnPesquisar" (click)="pesquisar()">
+                Pesquisar
+              </button>
+              <label for="btnLimpar" class="form-label">&nbsp;</label>
+              <button type="button" class="btn btn-outline-primary"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                (click)="limpar()">
+                Limpar
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br><br>
+  <div>
+    <table class="table table-striped border">
+      <thead>
+        <tr>
+          <th class="text-center">Nome da tarefa:</th>
+          <th class="text-center">Tipo da tarefa</th>
+          <th class="text-center">Realizada</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tarefa of tarefas">
+          <td class="text-center">{{ tarefa.nomeTarefa }}</td>
+          <td class="text-center">{{ tarefa.tipoTarefa }}</td>
+          <td class="text-center">
+            <span *ngIf="tarefa.realizado; else naoRealizado">Sim</span>
+            <ng-template #naoRealizado>Não</ng-template>
+          </td>
+          <td>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-outline-success" (click)="atualizar(tarefa.idTarefa)">Editar</button>
+              <button class="btn btn-outline-danger" (click)="excluir(tarefa)">Excluir</button>
+            </div>
+          </td>
+          <td>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-outline-success" (click)="toggleExpanded(tarefa)">Itens</button>
+            </div>
+            <!-- Linha expansível para itens da tarefa -->
+            <tr *ngIf="tarefa.expanded">
+              <td colspan="4">
+                <div>
+                  <p><strong>Itens da tarefa:</strong></p>
+                  <ul>
+                    <li *ngFor="let item of tarefa.itensTarefa" class="mb-2">
+                      {{ item.descricao }} - {{ item.realizado ? 'Realizado' : 'Não Realizado' }} <button id="#delete-item" type="button" class="btn btn-outline-danger ms-2" (click)="excluirItem(item)">
+                        Excluir
+                    </button>
+                    <button type="button" class="btn btn-outline-danger ms-2" (click)="alterarItem(item)">
+                      Editar
+                    </button>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

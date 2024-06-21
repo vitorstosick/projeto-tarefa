@@ -1,0 +1,46 @@
+<div class="container">
+    <br>
+    <div class="card">
+        <div class="card-header ">
+            <h5>{{ idItem ? 'Editar' : 'Novo'}} Item da tarefa</h5>
+        </div>
+        <div class="card-body">
+            <form #ngForm="ngForm">
+                <div class="row" >
+                    <div class="col-md-5">
+                        <label for="nome">Descrição:</label>
+                        <input  type="text" id="nome" class="form-control custom-border"
+                        minlength="5" name="nomeTarefa" [(ngModel)]="item.descricao" required/>
+                    </div>
+                    <div class="col-md-5 ">
+                        <label for="nome">Tarefa associada: </label>
+                        <select class="form-control" name="nomeVacina"  [(ngModel)]="item.tarefa" required>
+                            @for (item of tarefas; track item.idTarefa) {
+                            <option [ngValue]="item">{{ item.nomeTarefa }}</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-16 form-group">
+                            <label for="btnPesquisar" class="form-label">&nbsp;</label>
+                            <button type="button" class="btn btn-outline-secondary"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                name="btnPesquisar"
+                                (click)="salvar()"
+                                >
+                                Salvar
+                            </button>
+                            <label for="btnVoltar" class="form-label">&nbsp;</label>
+                            <button type="button" class="btn btn-outline-secondary"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                            name="btnVoltar"
+                            (click)="voltar()"
+                            >
+                            Voltar
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

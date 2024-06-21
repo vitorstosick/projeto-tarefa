@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+# Serviço para o MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_database
+    ports:
+      - "3307:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tarefa
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./src/main/resources/scripts:/docker-entrypoint-initdb.d
+    networks:
+      - network-tarefa
+# Serviço backend Java
+  java_app:
+    build: 
+      context: ./projeto_tarefa_backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - network-tarefa
+# Serviço para o Frontend em Angular
+  angular_app:
+    build:
+      context: ./projeto_tarefa_frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      java_app
+    networks:
+      -network-tarefa
+
+  networks:
+    network-tarefa
+
+

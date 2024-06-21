@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Tarefado</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"
+            href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Tarefa</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/tarefa/detalhe">Adicionar tarefa</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="/tarefa/">Lista de tarefa</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Historico
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/historico/">Listagem</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"
+            href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Item</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/item/detalhe">Adicionar item</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="/item/">Lista de item</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Usuario
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/usuario/detalhe">Cadastrar-se</a></li>
+              <li><a class="dropdown-item" href="/usuario/dados">Informações do usuário</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet><router-outlet /> </router-outlet>
