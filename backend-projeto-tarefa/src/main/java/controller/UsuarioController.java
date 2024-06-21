@@ -56,6 +56,4 @@ public class UsuarioController {
 	public List<Usuario> consultarTodos() {
 		return this.usuarioService.consultarTodas();
 	}
-
-
 }

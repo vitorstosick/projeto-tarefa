@@ -2,8 +2,6 @@ version: '3.8'
 
 networks:
   network-tarefa:
-    name: tarefa
-    external: true
 
 services:
   mysql:
@@ -15,17 +13,17 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tarefa
-      MYSQL_USER: root
+      MYSQL_USER: senac
       MYSQL_PASSWORD: root
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - ./src/main/resources/scripts:/docker-entrypoint-initdb.d
+      - ./backend-projeto-tarefa/src/main/resources/scripts:/docker-entrypoint-initdb.d
     networks:
       - network-tarefa
 
   java_app:
     build: 
-      context: ./backend_projeto_tarefa
+      context: ./backend-projeto-tarefa
       dockerfile: Dockerfile
     ports:
       - "8080:8080"

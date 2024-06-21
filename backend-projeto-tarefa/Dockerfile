@@ -18,7 +18,7 @@ FROM tomcat:10.1-jdk11-openjdk-slim
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy the WAR file from the build stage to Tomcat's webapps directory
-COPY --from=build /app/target/senac-20241-backend-exemplos-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=build /app/target/backend-projeto-tarefa-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
 # Copy the dependencies from the build stage to Tomcat's lib directory
 COPY --from=build /app/dependency-jars /usr/local/tomcat/lib/
