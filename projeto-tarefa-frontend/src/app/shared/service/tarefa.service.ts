@@ -11,7 +11,7 @@ import { ItemTarefa } from '../model/itemTarefa';
 })
 export class TarefaService {
 
-  private readonly API = 'http://localhost:8080/backend_projeto_tarefa/rest/tarefa';
+  private readonly API = 'http://localhost:8080/rest/tarefa';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -47,5 +47,5 @@ export class TarefaService {
   public consultarItensDaTarefa(idTarefa: number): Observable<Array<ItemTarefa>> {
     return this.httpClient.get<Array<ItemTarefa>>(this.API + '/listar-itens/' + idTarefa);
   }
-  
+
 }

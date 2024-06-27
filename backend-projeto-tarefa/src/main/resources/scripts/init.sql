@@ -1,6 +1,6 @@
-create schema tarefa;
+CREATE DATABASE IF NOT EXISTS tarefa;
 
-use tarefa;
+USE tarefa;
 
 create table if not exists tarefa.usuario (
 	id_usuario integer auto_increment primary key,

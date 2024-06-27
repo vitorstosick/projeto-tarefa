@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
 
-  private readonly API = 'http://localhost:8080/backend_projeto_tarefa/rest/usuario';
+  private readonly API = 'http://localhost:8080/rest/usuario';
 
   constructor(private httpClient: HttpClient) { }
 
